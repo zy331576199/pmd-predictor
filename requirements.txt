@@ -1,0 +1,27 @@
+# ============================================================================
+# requirements.txt  —— Streamlit 部署依赖
+#
+# ★ Python 版本: 在 Streamlit Cloud 部署时点 "Advanced settings"，把 Python 选成
+#   3.10 —— 要和你本地的 3.10.20 一致，torch / tabicl 的 cp310 轮子才对得上。
+#
+# ★ 还差 1 个版本号没填: tabicl。在你本地环境运行 `pip show tabicl`，把 Version
+#   后面的数字填到最下面 tabicl== 那行(例如 tabicl==0.1.4)。
+# ============================================================================
+
+# 让 pip 取到 torch 的【CPU 版】。不加这一行，torch==...+cpu 在普通 PyPI 找不到；
+# 而装默认 CUDA 版会有好几个 GB，Streamlit 免费版装不下。
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+streamlit>=1.36
+plotly>=5.20
+
+# —— 科学计算栈: 锁成你本地打印出来的版本，保证线上线下一致 ——
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+joblib==1.5.3
+
+# —— 关键两项 ——
+torch==2.11.0+cpu
+tabicl==2.1.1

@@ -1,0 +1,20 @@
+# 原始数据与中间产物(注意: model_bundle.joblib 里已内含去标识训练数据，
+# 见 README 隐私说明；若需严格保密，请把整个仓库设为 Private)
+data.5.30.txt
+data*.txt
+ML_Results_V14/
+*.pkl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 注意: 不要忽略 model_bundle.joblib —— 线上应用需要它
